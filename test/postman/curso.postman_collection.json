@@ -1,0 +1,522 @@
+{
+	"info": {
+		"_postman_id": "5a2a0c72-2d7a-4a2f-a774-f71c6d692989",
+		"name": "Curso",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24977831"
+	},
+	"item": [
+		{
+			"name": "login",
+			"item": [
+				{
+					"name": "health",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000",
+							"host": [
+								"localhost"
+							],
+							"port": "3000"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/auth/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"rydel\",\r\n    \"password\": \"123\",\r\n    \"email\": \"rydel.comas@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "localhost:3000/users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"raydel\",\r\n    \"password\": \"123\",\r\n    \"email\": \"raydel.comas@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJ5ZGVsIiwic3ViIjoiNjY2OTAxZmM2M2Q3ZGVjMWYyNWUwZDMxIiwiaWF0IjoxNzE4MTU4MDc2LCJleHAiOjE3MTgxNjE2NzZ9.MSR82Z4PUKjO78WMlFzaqJGR0sDkZD-VMKRIen9dkHo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJ5ZGVsIiwic3ViIjoiNjY2OTAxZmM2M2Q3ZGVjMWYyNWUwZDMxIiwiaWF0IjoxNzE4MTU4MDc2LCJleHAiOjE3MTgxNjE2NzZ9.MSR82Z4PUKjO78WMlFzaqJGR0sDkZD-VMKRIen9dkHo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/6669042263d7dec1f25e0d46",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"6669042263d7dec1f25e0d46"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJ5ZGVsIiwic3ViIjoiNjY2OTAxZmM2M2Q3ZGVjMWYyNWUwZDMxIiwiaWF0IjoxNzE4MTU4MDc2LCJleHAiOjE3MTgxNjE2NzZ9.MSR82Z4PUKjO78WMlFzaqJGR0sDkZD-VMKRIen9dkHo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"email\": \"raydel.comas@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/6669042263d7dec1f25e0d46",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"6669042263d7dec1f25e0d46"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "providers",
+			"item": [
+				{
+					"name": "localhost:3000/providers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJ5ZGVsIiwic3ViIjoiNjY2OTAxZmM2M2Q3ZGVjMWYyNWUwZDMxIiwiaWF0IjoxNzE4MTU4MDc2LCJleHAiOjE3MTgxNjE2NzZ9.MSR82Z4PUKjO78WMlFzaqJGR0sDkZD-VMKRIen9dkHo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"pan1\",\r\n    \"type\": \"mayorista\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/providers",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"providers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/providers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJ5ZGVsIiwic3ViIjoiNjY2OTAxZmM2M2Q3ZGVjMWYyNWUwZDMxIiwiaWF0IjoxNzE4MTU4MDc2LCJleHAiOjE3MTgxNjE2NzZ9.MSR82Z4PUKjO78WMlFzaqJGR0sDkZD-VMKRIen9dkHo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/providers",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"providers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/providers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJ5ZGVsIiwic3ViIjoiNjY2OTAxZmM2M2Q3ZGVjMWYyNWUwZDMxIiwiaWF0IjoxNzE4MTU4MDc2LCJleHAiOjE3MTgxNjE2NzZ9.MSR82Z4PUKjO78WMlFzaqJGR0sDkZD-VMKRIen9dkHo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/providers/666901fc63d7dec1f25e0d31",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"providers",
+								"666901fc63d7dec1f25e0d31"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/providers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJ5ZGVsIiwic3ViIjoiNjY2OTAxZmM2M2Q3ZGVjMWYyNWUwZDMxIiwiaWF0IjoxNzE4MTU4MDc2LCJleHAiOjE3MTgxNjE2NzZ9.MSR82Z4PUKjO78WMlFzaqJGR0sDkZD-VMKRIen9dkHo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"email\": \"raydel.comas@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/providers/6669042263d7dec1f25e0d46",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"providers",
+								"6669042263d7dec1f25e0d46"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "localhost:3000/products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJ5ZGVsIiwic3ViIjoiNjY2OTAxZmM2M2Q3ZGVjMWYyNWUwZDMxIiwiaWF0IjoxNzE4MTU4MDc2LCJleHAiOjE3MTgxNjE2NzZ9.MSR82Z4PUKjO78WMlFzaqJGR0sDkZD-VMKRIen9dkHo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"padsnads1\",\r\n    \"type\": \"ropa\",\r\n    \"providerId\": \"asd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/products",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/products",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJ5ZGVsIiwic3ViIjoiNjY2OTAxZmM2M2Q3ZGVjMWYyNWUwZDMxIiwiaWF0IjoxNzE4MTU4MDc2LCJleHAiOjE3MTgxNjE2NzZ9.MSR82Z4PUKjO78WMlFzaqJGR0sDkZD-VMKRIen9dkHo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/products",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJ5ZGVsIiwic3ViIjoiNjY2OTAxZmM2M2Q3ZGVjMWYyNWUwZDMxIiwiaWF0IjoxNzE4MTU4MDc2LCJleHAiOjE3MTgxNjE2NzZ9.MSR82Z4PUKjO78WMlFzaqJGR0sDkZD-VMKRIen9dkHo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/products/666901fc63d7dec1f25e0d31",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"666901fc63d7dec1f25e0d31"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJ5ZGVsIiwic3ViIjoiNjY2OTAxZmM2M2Q3ZGVjMWYyNWUwZDMxIiwiaWF0IjoxNzE4MTU4MDc2LCJleHAiOjE3MTgxNjE2NzZ9.MSR82Z4PUKjO78WMlFzaqJGR0sDkZD-VMKRIen9dkHo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"email\": \"raydel.comas@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/products/6669042263d7dec1f25e0d46",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"6669042263d7dec1f25e0d46"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
