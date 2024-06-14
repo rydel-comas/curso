@@ -13,11 +13,11 @@ export class UsersService {
   constructor(@InjectModel(User.name) private readonly userModel: Model<User>) {}
 
   async create(createUserDto: CreateUserDto) {
-    // Verificar si el email ya existe
+
     const existingUser = await this.userModel.findOne({email: createUserDto.email}).exec();
 
     if(existingUser) {
-     throw new EmailAlreadyExistsException();// lanzar un error si el email ya está en uso
+     throw new EmailAlreadyExistsException();
     }
 
     const { password, ...userData } = createUserDto;
@@ -43,13 +43,13 @@ export class UsersService {
     return user ? user.toObject(): null;
   }
 
-  // Un Método para actualizar un usuario por su ID
+
   async update(id: string, updateUserDto: UpdateUserDto ): Promise<Omit<User, 'password'> | null> {
-    // Destructurar 
+
     const {password, ...userData } = updateUserDto;
 
     const hashedPassword = password ? await bcrypt.hash(password, 10): undefined;
-    // Actualizar eal usuario en la base de datos
+  
     const updatedUser = await this.userModel.findByIdAndUpdate(
       id, {
         ...userData, 
@@ -59,7 +59,7 @@ export class UsersService {
       return updatedUser ? updatedUser.toObject() : null;
   }
 
-  // Método para poder eliminar el usuario por ID
+
   async remove(id: string): Promise<void> {
     await this.userModel.findByIdAndDelete(id).exec();
   }

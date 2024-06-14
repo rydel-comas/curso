@@ -23,5 +23,3 @@ export class Product extends Document {
 
 export const ProductSchema = SchemaFactory.createForClass(Product);
 
-// Este UserSchema puede ser utilziado para definir un modelo de Mongoose
-// que nos permita iteractuar con la base de datos 

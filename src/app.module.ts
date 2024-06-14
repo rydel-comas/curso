@@ -12,13 +12,13 @@ import { ConfigService } from '@nestjs/config';
 @Module({
   imports: [
     ConfigModule.forRoot({
-    isGlobal: true, // hace que el modulo de configuración sea global, es accesible en cualquier módulo sin necesidad de importalo nuevamente
+    isGlobal: true,
   }),
   MongooseModule.forRootAsync({
     imports: [ConfigModule],
     inject: [ConfigService],
     useFactory: async (config: ConfigService) => ({
-      uri: config.get<string>('MONGODB_URI'), // Loaded from .ENV
+      uri: config.get<string>('MONGODB_URI'),
     })
   }),
   UsersModule,

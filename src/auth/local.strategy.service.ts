@@ -8,9 +8,9 @@ import { User } from '../users/schemas/user.schema';
 export class LocalStrategy extends PassportStrategy(Strategy) {
   
   constructor(private readonly authService: AuthService) {
-    super({usernameField: 'email'}) // Configura la estrategia para usar el campo "email" en lugar del 'username'
+    super({usernameField: 'email'}) 
   }
-  // de la request tomamos el email y el password
+ 
   async validate(email: string, password: string): Promise<User> {
     const user = await this.authService.validateUser(email, password);
     if(!user) {

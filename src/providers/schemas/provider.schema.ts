@@ -7,7 +7,7 @@ export class Provider extends Document {
   @Prop({required: true })
   name: string;
   
-  @Prop({required: true}) // Asegura que el email sea unico
+  @Prop({required: true}) 
   type: string;
 
   @Prop({default: Date.now })
@@ -19,5 +19,3 @@ export class Provider extends Document {
 
 export const ProviderSchema = SchemaFactory.createForClass(Provider);
 
-// Este UserSchema puede ser utilziado para definir un modelo de Mongoose
-// que nos permita iteractuar con la base de datos 
