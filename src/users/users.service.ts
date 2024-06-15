@@ -28,12 +28,11 @@ export class UsersService {
   }
 
   async findAll():Promise<Omit<User, 'password'>[]> {
-    //* Busca todos los usuarios en la base de datos y excluye el campo password de los resultados
+ 
     const users = await this.userModel.find().select('-password').exec();
     return users;
   }
 
-  //* necesito crear un método que me permita obtener al usuario por correo
   async findByEmail(email: string ): Promise<User | null> {
     const user = await this.userModel.findOne({email}).exec();
     return user;

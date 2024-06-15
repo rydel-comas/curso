@@ -14,7 +14,7 @@ export class ProductsService {
   constructor(@InjectModel(Product.name) private readonly productModel: Model<Product>) {}
 
   create(createProductDto: CreateProductDto, createBy) {
-    if(!Object.values(EtypeProducts).includes(createProductDto.type as EtypeProducts)) { //PRINCIO, SOLID, 
+    if(!Object.values(EtypeProducts).includes(createProductDto.type as EtypeProducts)) { 
       throw new ProductTypeNotFound();
     }
     const createProvider = new this.productModel({...createProductDto, createBy});
@@ -38,7 +38,7 @@ export class ProductsService {
 
   async update(id: string, updateProductDto: UpdateProductDto) {
     if (updateProductDto.type) {
-      if(!Object.values(EtypeProducts).includes(updateProductDto.type as EtypeProducts)) { //PRINCIO, SOLID, 
+      if(!Object.values(EtypeProducts).includes(updateProductDto.type as EtypeProducts)) { 
         throw new ProductTypeNotFound();
       }
     }

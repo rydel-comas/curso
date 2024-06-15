@@ -13,7 +13,7 @@ export class ProvidersService {
 
   create(createProviderDto: CreateProviderDto, createBy: string) {
     
-    if(!Object.values(EtypeProvider).includes(createProviderDto.type as EtypeProvider)) { //PRINCIO, SOLID, 
+    if(!Object.values(EtypeProvider).includes(createProviderDto.type as EtypeProvider)) { 
       throw new ProviderTypeNotFound();
     }
     const createProviders = new this.providerModel({...createProviderDto, createBy});
@@ -37,7 +37,7 @@ export class ProvidersService {
 
   async update(id: string, updateProviderDto: UpdateProviderDto) {
     if (updateProviderDto.type) {
-      if(!Object.values(EtypeProvider).includes(updateProviderDto.type as EtypeProvider)) { //PRINCIO, SOLID, 
+      if(!Object.values(EtypeProvider).includes(updateProviderDto.type as EtypeProvider)) { 
         throw new ProviderTypeNotFound();
       }
     }
