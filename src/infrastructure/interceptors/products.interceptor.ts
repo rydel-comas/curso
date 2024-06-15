@@ -12,6 +12,15 @@ import { ProductAlreadyExistsException } from '@exceptions/products-already-exis
 export class ProductInterceptors implements NestInterceptor {
   constructor(private productsService: ProductsService) {}
 
+  /**
+   * Intercepts the incoming request and performs validation to check if a product with the same name already exists.
+   * If a product with the same name exists, throws a ProductAlreadyExistsException.
+   * Otherwise, allows the request to proceed.
+   *
+   * @param context - The execution context of the incoming request.
+   * @param next - The next call handler in the chain.
+   * @returns A promise that resolves to an observable of the next call handler.
+   */
   async intercept(
     context: ExecutionContext,
     next: CallHandler,
