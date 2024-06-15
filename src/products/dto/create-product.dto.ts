@@ -1,6 +1,5 @@
 import { IsString, IsNotEmpty } from 'class-validator';
 export class CreateProductDto {
-
   @IsString()
   @IsNotEmpty()
   readonly name: string;

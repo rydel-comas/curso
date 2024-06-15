@@ -13,5 +13,5 @@ export const Auth = createParamDecorator(
     } catch (error) {
       throw new ForbiddenException();
     }
-  }
+  },
 );

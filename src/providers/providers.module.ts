@@ -5,12 +5,13 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { Provider, ProviderSchema } from './schemas/provider.schema';
 import { ProviderInterceptors } from '@interceptors/providers.interceptor';
 
-
 @Module({
   imports: [
-    MongooseModule.forFeature([{name: Provider.name, schema: ProviderSchema}])
+    MongooseModule.forFeature([
+      { name: Provider.name, schema: ProviderSchema },
+    ]),
   ],
   controllers: [ProvidersController],
-  providers: [ProvidersService, ProviderInterceptors]
+  providers: [ProvidersService, ProviderInterceptors],
 })
 export class ProvidersModule {}

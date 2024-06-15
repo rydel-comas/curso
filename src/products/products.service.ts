@@ -4,21 +4,28 @@ import { UpdateProductDto } from './dto/update-product.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Product } from './schemas/product.schema';
 import { Model } from 'mongoose';
-import { EtypeProducts } from './type.products.enum'
+import { EtypeProducts } from './type.products.enum';
 import { ProductTypeNotFound } from '@exceptions/product-not-found';
-
 
 @Injectable()
 export class ProductsService {
-  
-  constructor(@InjectModel(Product.name) private readonly productModel: Model<Product>) {}
+  constructor(
+    @InjectModel(Product.name) private readonly productModel: Model<Product>,
+  ) {}
 
   create(createProductDto: CreateProductDto, createBy) {
-    if(!Object.values(EtypeProducts).includes(createProductDto.type as EtypeProducts)) { 
+    if (
+      !Object.values(EtypeProducts).includes(
+        createProductDto.type as EtypeProducts,
+      )
+    ) {
       throw new ProductTypeNotFound();
     }
-    const createProvider = new this.productModel({...createProductDto, createBy});
-    return createProvider.save()
+    const createProvider = new this.productModel({
+      ...createProductDto,
+      createBy,
+    });
+    return createProvider.save();
   }
 
   async findAll() {
@@ -27,29 +34,36 @@ export class ProductsService {
   }
 
   async findOne(id: string) {
-    const products =  await this.productModel.findById(id).exec();
-    return products ? products.toObject(): null;
+    const products = await this.productModel.findById(id).exec();
+    return products ? products.toObject() : null;
   }
 
   async findByName(name: string) {
-    const products =  await this.productModel.findOne({'name': {'$regex': `^${name}$`, $options: 'i'}}).exec();
-    return products ? products.toObject(): null;
+    const products = await this.productModel
+      .findOne({ name: { $regex: `^${name}$`, $options: 'i' } })
+      .exec();
+    return products ? products.toObject() : null;
   }
 
   async update(id: string, updateProductDto: UpdateProductDto) {
     if (updateProductDto.type) {
-      if(!Object.values(EtypeProducts).includes(updateProductDto.type as EtypeProducts)) { 
+      if (
+        !Object.values(EtypeProducts).includes(
+          updateProductDto.type as EtypeProducts,
+        )
+      ) {
         throw new ProductTypeNotFound();
       }
     }
-    const updatedProducts = await this.productModel.findByIdAndUpdate(id, 
-      updateProductDto
+    const updatedProducts = await this.productModel.findByIdAndUpdate(
+      id,
+      updateProductDto,
     );
     return updatedProducts ? updatedProducts.toObject() : null;
   }
 
   async remove(id: string) {
-    console.log(id)
+    console.log(id);
     await this.productModel.findByIdAndDelete(id).exec();
   }
 }

@@ -1,7 +1,6 @@
-import { IsString, IsNotEmpty, Matches } from 'class-validator';
+import { IsString, IsNotEmpty } from 'class-validator';
 
 export class CreateProviderDto {
-
   @IsString()
   @IsNotEmpty()
   readonly name: string;
@@ -9,5 +8,4 @@ export class CreateProviderDto {
   @IsString()
   @IsNotEmpty()
   readonly type: string;
-
 }

@@ -4,20 +4,27 @@ import { UpdateProviderDto } from './dto/update-provider.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Provider } from './schemas/provider.schema';
 import { Model } from 'mongoose';
-import { EtypeProvider } from './type.providers.enum'
+import { EtypeProvider } from './type.providers.enum';
 import { ProviderTypeNotFound } from '@exceptions/provider-type-not-found';
 @Injectable()
 export class ProvidersService {
-
-  constructor(@InjectModel(Provider.name) private readonly providerModel: Model<Provider>) {}
+  constructor(
+    @InjectModel(Provider.name) private readonly providerModel: Model<Provider>,
+  ) {}
 
   create(createProviderDto: CreateProviderDto, createBy: string) {
-    
-    if(!Object.values(EtypeProvider).includes(createProviderDto.type as EtypeProvider)) { 
+    if (
+      !Object.values(EtypeProvider).includes(
+        createProviderDto.type as EtypeProvider,
+      )
+    ) {
       throw new ProviderTypeNotFound();
     }
-    const createProviders = new this.providerModel({...createProviderDto, createBy});
-    return createProviders.save()
+    const createProviders = new this.providerModel({
+      ...createProviderDto,
+      createBy,
+    });
+    return createProviders.save();
   }
 
   async findAll() {
@@ -26,23 +33,30 @@ export class ProvidersService {
   }
 
   async findOne(id: string) {
-    const providers =  await this.providerModel.findById(id).exec();
-    return providers ? providers.toObject(): null;
+    const providers = await this.providerModel.findById(id).exec();
+    return providers ? providers.toObject() : null;
   }
 
   async findByName(name: string) {
-    const providers =  await this.providerModel.findOne({'name': {'$regex': `^${name}$`, $options: 'i'}}).exec();
-    return providers ? providers.toObject(): null;
+    const providers = await this.providerModel
+      .findOne({ name: { $regex: `^${name}$`, $options: 'i' } })
+      .exec();
+    return providers ? providers.toObject() : null;
   }
 
   async update(id: string, updateProviderDto: UpdateProviderDto) {
     if (updateProviderDto.type) {
-      if(!Object.values(EtypeProvider).includes(updateProviderDto.type as EtypeProvider)) { 
+      if (
+        !Object.values(EtypeProvider).includes(
+          updateProviderDto.type as EtypeProvider,
+        )
+      ) {
         throw new ProviderTypeNotFound();
       }
     }
-    const updatedProviders = await this.providerModel.findByIdAndUpdate(id, 
-      updateProviderDto
+    const updatedProviders = await this.providerModel.findByIdAndUpdate(
+      id,
+      updateProviderDto,
     );
     return updatedProviders ? updatedProviders.toObject() : null;
   }

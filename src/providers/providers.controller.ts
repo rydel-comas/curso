@@ -1,4 +1,14 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, UseInterceptors } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  UseGuards,
+  UseInterceptors,
+} from '@nestjs/common';
 import { ProvidersService } from './providers.service';
 import { CreateProviderDto } from './dto/create-provider.dto';
 import { UpdateProviderDto } from './dto/update-provider.dto';
@@ -6,12 +16,11 @@ import { ProviderInterceptors } from '@interceptors/providers.interceptor';
 import { JwtAuthGuard } from '@guards/jwt-auth.guard';
 import { Auth } from '@decorators/auth.decorator';
 
-
 @UseGuards(JwtAuthGuard)
 @Controller('providers')
 export class ProvidersController {
   constructor(private readonly providersService: ProvidersService) {}
-  
+
   @UseInterceptors(ProviderInterceptors)
   @Post()
   create(@Body() createProvidersDto: CreateProviderDto, @Auth() { userId }) {
@@ -29,7 +38,10 @@ export class ProvidersController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateProvidersDto: UpdateProviderDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateProvidersDto: UpdateProviderDto,
+  ) {
     return this.providersService.update(id, updateProvidersDto);
   }
 

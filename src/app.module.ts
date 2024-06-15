@@ -11,19 +11,19 @@ import { ProductsModule } from './products/products.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
-    isGlobal: true,
-  }),
-  MongooseModule.forRootAsync({
-    imports: [ConfigModule],
-    inject: [ConfigService],
-    useFactory: async (config: ConfigService) => ({
-      uri: config.get<string>('MONGODB_URI'),
-    })
-  }),
-  UsersModule,
-  AuthModule,
-  ProvidersModule,
-  ProductsModule
+      isGlobal: true,
+    }),
+    MongooseModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: async (config: ConfigService) => ({
+        uri: config.get<string>('MONGODB_URI'),
+      }),
+    }),
+    UsersModule,
+    AuthModule,
+    ProvidersModule,
+    ProductsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

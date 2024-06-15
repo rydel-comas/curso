@@ -1,4 +1,4 @@
 export enum EtypeProvider {
-    mayorista  = "mayorista",
-    minorista   = "minorista"
+  mayorista = 'mayorista',
+  minorista = 'minorista',
 }

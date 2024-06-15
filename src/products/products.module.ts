@@ -5,10 +5,9 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { Product, ProductSchema } from './schemas/product.schema';
 import { ProductInterceptors } from '@interceptors/products.interceptor';
 
-
 @Module({
   imports: [
-    MongooseModule.forFeature([{name: Product.name, schema: ProductSchema}]) 
+    MongooseModule.forFeature([{ name: Product.name, schema: ProductSchema }]),
   ],
   controllers: [ProductsController],
   providers: [ProductsService, ProductInterceptors],
