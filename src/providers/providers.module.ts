@@ -3,7 +3,8 @@ import { ProvidersService } from './providers.service';
 import { ProvidersController } from './providers.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Provider, ProviderSchema } from './schemas/provider.schema';
-import { ProviderInterceptors } from 'src/common/interceptors/providers.interceptor';
+import { ProviderInterceptors } from '@interceptors/providers.interceptor';
+
 
 @Module({
   imports: [

@@ -2,7 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { CallHandler, ExecutionContext, NestInterceptor } from '@nestjs/common';
 import { Observable, throwError } from 'rxjs';
 import { ProductsService } from '../../products/products.service';
-import { ProductAlreadyExistsException } from 'src/common/exceptions/products-already-exists';
+import { ProductAlreadyExistsException } from '@exceptions/products-already-exists';
+
 @Injectable()
 export class ProductInterceptors implements NestInterceptor {
     constructor(private productsService: ProductsService) {}

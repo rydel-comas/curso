@@ -5,7 +5,8 @@ import { Model } from 'mongoose';
 import * as bcrypt from 'bcrypt';
 import { InjectModel } from '@nestjs/mongoose';
 import { User } from './schemas/user.schema';
-import { EmailAlreadyExistsException } from '../common/exceptions/email-already-exists';
+import { EmailAlreadyExistsException } from '@exceptions/email-already-exists';
+
 
 @Injectable()
 export class UsersService {

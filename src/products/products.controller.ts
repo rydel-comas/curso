@@ -2,9 +2,10 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, UseInterc
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
-import { JwtAuthGuard } from 'src/common/guards/jwt-auth.guard';
-import { Auth } from 'src/common/decorators/auth.decorator';
-import { ProductInterceptors } from 'src/common/interceptors/products.interceptor';
+import { JwtAuthGuard } from '@guards/jwt-auth.guard';
+import { ProductInterceptors } from '@interceptors/products.interceptor';
+import { Auth } from '@decorators/auth.decorator';
+
 @UseGuards(JwtAuthGuard)
 @Controller('products')
 export class ProductsController {

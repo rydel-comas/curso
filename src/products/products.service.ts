@@ -5,7 +5,8 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Product } from './schemas/product.schema';
 import { Model } from 'mongoose';
 import { EtypeProducts } from './type.products.enum'
-import { ProductTypeNotFound } from 'src/common/exceptions/product-not-found';
+import { ProductTypeNotFound } from '@exceptions/product-not-found';
+
 
 @Injectable()
 export class ProductsService {

@@ -16,6 +16,12 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@exceptions/*": ["src/infrastructure/exceptions/*"],
+      "@decorators/*": ["src/infrastructure/decorators/*"],
+      "@guards/*": ["src/infrastructure/guards/*"],
+      "@interceptors/*": ["src/infrastructure/interceptors/*"]
+    }
   }
 }

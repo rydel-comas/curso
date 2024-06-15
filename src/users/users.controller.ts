@@ -3,9 +3,10 @@ import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './schemas/user.schema';
-import { JwtAuthGuard } from 'src/common/guards/jwt-auth.guard';
+import { JwtAuthGuard } from '@guards/jwt-auth.guard';
 
-//* http://localhost:3000/users/141341341AFAD3DAF - GET
+
+
 @Controller('users')
 export class UsersController {
 

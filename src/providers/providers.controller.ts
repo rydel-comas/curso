@@ -2,9 +2,10 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, UseInterc
 import { ProvidersService } from './providers.service';
 import { CreateProviderDto } from './dto/create-provider.dto';
 import { UpdateProviderDto } from './dto/update-provider.dto';
-import { JwtAuthGuard } from 'src/common/guards/jwt-auth.guard';
-import { Auth } from 'src/common/decorators/auth.decorator';
-import { ProviderInterceptors } from '../common/interceptors/providers.interceptor';
+import { ProviderInterceptors } from '@interceptors/providers.interceptor';
+import { JwtAuthGuard } from '@guards/jwt-auth.guard';
+import { Auth } from '@decorators/auth.decorator';
+
 
 @UseGuards(JwtAuthGuard)
 @Controller('providers')
