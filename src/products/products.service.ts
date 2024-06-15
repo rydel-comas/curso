@@ -45,7 +45,6 @@ export class ProductsService {
   }
 
   async remove(id: string) {
-    console.log(id);
     await this.productModel.findByIdAndDelete(id).exec();
   }
 }
