@@ -24,7 +24,7 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Sistema de Gestión de Productos y Proveedores con registro de usuarios método JWT.
 
 ## Installation
 
@@ -33,6 +33,13 @@ $ npm install
 ```
 
 ## Running the app
+
+Se debe crear el archivo .env con las siguientes variables
+```
+PORT=3000 //puerto de aplicación
+JWT_SECRET=secreto-ultra //secret jwt
+MONGODB_URI=mongodb://localhost/products-providers  //ip base datos mongodb
+```
 
 ```bash
 # development
@@ -58,16 +65,12 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
+## Mejoras
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+- Aplicar unit test
+- Manejo de respuestas vacias
+- script para generar bd mongo poblada
+- estructura hexagonal
 
-## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
 
-## License
-
-Nest is [MIT licensed](LICENSE).
