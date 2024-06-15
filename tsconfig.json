@@ -21,7 +21,8 @@
       "@exceptions/*": ["src/infrastructure/exceptions/*"],
       "@decorators/*": ["src/infrastructure/decorators/*"],
       "@guards/*": ["src/infrastructure/guards/*"],
-      "@interceptors/*": ["src/infrastructure/interceptors/*"]
+      "@interceptors/*": ["src/infrastructure/interceptors/*"],
+      "@strategys/*": ["src/infrastructure/strategys/*"],
     }
   }
 }
