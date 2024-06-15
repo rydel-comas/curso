@@ -4,8 +4,7 @@ import { UpdateProviderDto } from './dto/update-provider.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Provider } from './schemas/provider.schema';
 import { Model } from 'mongoose';
-import { EtypeProvider } from './type.providers.enum';
-import { ProviderTypeNotFound } from '@exceptions/provider-type-not-found';
+
 @Injectable()
 export class ProvidersService {
   constructor(
@@ -13,13 +12,6 @@ export class ProvidersService {
   ) {}
 
   create(createProviderDto: CreateProviderDto, createBy: string) {
-    if (
-      !Object.values(EtypeProvider).includes(
-        createProviderDto.type as EtypeProvider,
-      )
-    ) {
-      throw new ProviderTypeNotFound();
-    }
     const createProviders = new this.providerModel({
       ...createProviderDto,
       createBy,
@@ -45,15 +37,6 @@ export class ProvidersService {
   }
 
   async update(id: string, updateProviderDto: UpdateProviderDto) {
-    if (updateProviderDto.type) {
-      if (
-        !Object.values(EtypeProvider).includes(
-          updateProviderDto.type as EtypeProvider,
-        )
-      ) {
-        throw new ProviderTypeNotFound();
-      }
-    }
     const updatedProviders = await this.providerModel.findByIdAndUpdate(
       id,
       updateProviderDto,

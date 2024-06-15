@@ -4,8 +4,6 @@ import { UpdateProductDto } from './dto/update-product.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Product } from './schemas/product.schema';
 import { Model } from 'mongoose';
-import { EtypeProducts } from './type.products.enum';
-import { ProductTypeNotFound } from '@exceptions/product-not-found';
 
 @Injectable()
 export class ProductsService {
@@ -14,13 +12,6 @@ export class ProductsService {
   ) {}
 
   create(createProductDto: CreateProductDto, createBy) {
-    if (
-      !Object.values(EtypeProducts).includes(
-        createProductDto.type as EtypeProducts,
-      )
-    ) {
-      throw new ProductTypeNotFound();
-    }
     const createProvider = new this.productModel({
       ...createProductDto,
       createBy,
@@ -46,15 +37,6 @@ export class ProductsService {
   }
 
   async update(id: string, updateProductDto: UpdateProductDto) {
-    if (updateProductDto.type) {
-      if (
-        !Object.values(EtypeProducts).includes(
-          updateProductDto.type as EtypeProducts,
-        )
-      ) {
-        throw new ProductTypeNotFound();
-      }
-    }
     const updatedProducts = await this.productModel.findByIdAndUpdate(
       id,
       updateProductDto,

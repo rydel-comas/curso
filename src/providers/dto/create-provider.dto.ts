@@ -1,11 +1,12 @@
-import { IsString, IsNotEmpty } from 'class-validator';
+import { IsString, IsNotEmpty, IsEnum } from 'class-validator';
+import { ProviderEnum } from '../enum/provider.enum';
 
 export class CreateProviderDto {
   @IsString()
   @IsNotEmpty()
   readonly name: string;
 
-  @IsString()
+  @IsEnum(ProviderEnum)
   @IsNotEmpty()
   readonly type: string;
 }
